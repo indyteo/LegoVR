@@ -196,7 +196,8 @@ namespace BNG {
             if (_cursor != null) {
 
                 bool lookingAtUI = data.pointerCurrentRaycast.module.GetType() == typeof(GraphicRaycaster);
-                selectedPointerEvents = data.pointerCurrentRaycast.gameObject.GetComponent<PointerEvents>();
+                PointerEvents[] pointerEventsArray = data.pointerCurrentRaycast.gameObject.GetComponentsInParent<PointerEvents>();
+                selectedPointerEvents = pointerEventsArray.Length == 0 ? null : pointerEventsArray[0];
                 bool lookingAtPhysicalObject = selectedPointerEvents != null;
 
                 // Are we too far away from the Physics object now?

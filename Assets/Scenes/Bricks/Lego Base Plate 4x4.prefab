@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7173892833786674925}
   - component: {fileID: 4292643256894845421}
   - component: {fileID: 8063235397509280408}
+  - component: {fileID: 89433472298998657}
   m_Layer: 10
   m_Name: Lego Base Plate 4x4
   m_TagString: Untagged
@@ -352,6 +353,18 @@ MonoBehaviour:
   MaximumVolume: 1
   RecentlyPlayedSound: 0
   LastRelativeVelocity: 0
+--- !u!114 &89433472298998657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530288553457441833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72777a598a147878e80c67804b119ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4334692521649237370
 PrefabInstance:
   m_ObjectHideFlags: 0

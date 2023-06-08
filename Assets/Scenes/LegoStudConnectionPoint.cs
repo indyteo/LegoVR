@@ -4,6 +4,7 @@ namespace Scenes {
 	public class LegoStudConnectionPoint : MonoBehaviour {
 		public LegoBrick Brick { get; private set; }
 		public LegoStud ConnectedTo { get; set; }
+		public Joint Joint { get; set; }
 
 		private void Awake() {
 			this.Brick = this.gameObject.GetComponentInParent<LegoBrick>();
@@ -20,6 +21,8 @@ namespace Scenes {
 		private void OnTriggerExit(Collider other) {
 			LegoStud stud = other.gameObject.GetComponent<LegoStud>();
 			if (stud != null) {
+				Destroy(this.Joint);
+				this.Joint = null;
 				stud.ConnectedTo = null;
 				this.ConnectedTo = null;
 			}
