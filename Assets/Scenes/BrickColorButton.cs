@@ -7,6 +7,9 @@ namespace Scenes {
 		private Button button;
 		private Material material;
 
+		public delegate void OnMaterialSelected(Material material);
+
+		public OnMaterialSelected MaterialSelectedCallback;
 		public Material Material {
 			get => this.material;
 			set {
@@ -30,6 +33,8 @@ namespace Scenes {
 
 		private void OnClick() {
 			LegoManager.Instance.CurrentMaterial = this.material;
+			if (this.MaterialSelectedCallback != null)
+				this.MaterialSelectedCallback.Invoke(this.material);
 		}
 	}
 }
