@@ -7,9 +7,10 @@ namespace LegoVR.Scripts {
 		[SerializeField]
 		public Material initialMaterial;
 
+		public new Rigidbody rigidbody { get; private set; }
+
 		private LegoStud[] studs;
 		private LegoStudConnectionPoint[] connectionPoints;
-		private new Rigidbody rigidbody;
 		private MeshRenderer[] renderers;
 		private bool breakable;
 
@@ -36,7 +37,7 @@ namespace LegoVR.Scripts {
 
 		public override void OnGrab(Grabber grabber) {
 			base.OnGrab(grabber);
-			this.UpdateBreakability(IsTriggerPressed());
+			this.UpdateBreakability(this.IsTriggerPressed());
 		}
 
 		public override void OnRelease() {
@@ -47,14 +48,14 @@ namespace LegoVR.Scripts {
 		private void CheckForConnections() {
 			foreach (LegoStud stud in this.studs) {
             	LegoStudConnectionPoint connectionPoint = stud.ConnectedTo;
-            	if (connectionPoint != null && !connectionPoint.Joint) {
+            	if (connectionPoint != null && !connectionPoint.Connected) {
 	                CreateJoint(stud, connectionPoint);
 	                connectionPoint.Brick.CheckForConnections();
                 }
             }
             foreach (LegoStudConnectionPoint connectionPoint in this.connectionPoints) {
             	LegoStud stud = connectionPoint.ConnectedTo;
-            	if (stud != null && !connectionPoint.Joint) {
+            	if (stud != null && !connectionPoint.Connected) {
 	                CreateJoint(stud, connectionPoint);
 	                stud.Brick.CheckForConnections();
                 }
@@ -70,13 +71,20 @@ namespace LegoVR.Scripts {
 			return (this.thisGrabber.HandSide == ControllerHand.Left ? this.input.LeftTrigger : this.input.RightTrigger) > 0.2f;
 		}
 
-		private void UpdateBreakability(bool newBreakable) {
-			if (this.breakable == newBreakable)
+		private void UpdateBreakability(bool isBreakable) {
+			if (this.breakable == isBreakable)
 				return;
-			this.breakable = newBreakable;
+			this.breakable = isBreakable;
 			foreach (LegoStudConnectionPoint connectionPoint in this.connectionPoints)
 				if (connectionPoint.Joint)
-					connectionPoint.Joint.breakForce = newBreakable ? BREAKABLE_FORCE : UNBREAKABLE_FORCE;
+					connectionPoint.Joint.breakForce = isBreakable ? BREAKABLE_FORCE : UNBREAKABLE_FORCE;
+			/*if (isBreakable) {
+				foreach (LegoStudConnectionPoint connectionPoint in this.connectionPoints)
+					connectionPoint.Connected = false;
+				LegoManager.Instance.Bricks.Disconnect(this);
+				LegoManager.PlayDisconnectSound(this.transform.position);
+			} else
+				this.CheckForConnections();*/
 		}
 
 		private static void CreateJoint(LegoStud stud, LegoStudConnectionPoint connectionPoint) {
@@ -84,6 +92,8 @@ namespace LegoVR.Scripts {
 			connectionPoint.Joint.connectedBody = stud.Brick.rigidbody;
 			connectionPoint.Joint.enableCollision = true;
 			connectionPoint.Joint.breakForce = UNBREAKABLE_FORCE;
+			/*connectionPoint.Connected = true;
+			LegoManager.Instance.Bricks.Connect(connectionPoint.Brick, stud.Brick);*/
 			LegoManager.PlayConnectSound(stud.transform.position);
 		}
 
@@ -95,7 +105,6 @@ namespace LegoVR.Scripts {
 
 		public void SetMaterial(Material material) {
 			foreach (MeshRenderer r in this.renderers)
-				//r.sharedMaterial = material;
 				r.material = material;
 		}
 

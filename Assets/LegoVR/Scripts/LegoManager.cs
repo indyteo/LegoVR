@@ -1,5 +1,6 @@
 ﻿using BNG;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace LegoVR.Scripts {
 	public class LegoManager : MonoBehaviour {
@@ -9,6 +10,10 @@ namespace LegoVR.Scripts {
 		public AudioClip DisconnectSound { get; private set; }
 		[field: SerializeField]
 		public Material CurrentMaterial { get; set; }
+		[field: SerializeField]
+		public InputActionReference QuitAction { get; private set; }
+
+		public BricksGraph Bricks { get; private set; } = new BricksGraph();
 
 		public static LegoManager Instance { get; private set; }
 
@@ -17,6 +22,18 @@ namespace LegoVR.Scripts {
 				Instance = this;
 				DontDestroyOnLoad(this);
 			}
+		}
+
+		private void OnEnable() {
+			this.QuitAction.action.performed += Quit;
+		}
+
+		private void OnDisable() {
+			this.QuitAction.action.performed -= Quit;
+		}
+
+		public static void Quit(InputAction.CallbackContext context) {
+			Application.Quit();
 		}
 
 		public static void PlayConnectSound(Vector3 position) {

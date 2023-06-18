@@ -504,6 +504,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "3a563342-6276-4a61-9ca6-ffb1f1f56cc5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector Keyboard",
                     "id": "146a3d26-d500-465d-b918-3d044f109140",
                     "path": "2DVector",

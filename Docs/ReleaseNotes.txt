@@ -1,16 +1,3 @@
-# LegoVR
-Lego building in virtual reality - First VR project using Unity - ESIEE Paris E4FI
-
-https://github.com/indyteo/LegoVR/blob/master/Docs/LegoVR_VideoWalkthrough.mp4?raw=true
-
-![Bricks inventory](Docs/LegoVR_Screenshot_1.png)
-
-![Colors menu](Docs/LegoVR_Screenshot_2.png)
-
-![Lego build](Docs/LegoVR_Screenshot_3.png)
-
-![Connected bricks](Docs/LegoVR_Screenshot_4.png)
-
 # Instruction de l'application
 
 ## Objectif
@@ -21,29 +8,29 @@ L'objectif de l'application est de permettre aux utilisateurs de construire ce q
 
 ### Observation
 
-* Fonctionnalité 1 : Voir les briques et autres objets présents dans la scène, visualiser ses mains en jeu (immersion proprioceptive)
-* Fonctionnalité 2 : Voir les différents types et couleurs de briques via des menus
+- Fonctionnalité 1 : Voir les briques et autres objets présents dans la scène, visualiser ses mains en jeu (immersion proprioceptive)
+- Fonctionnalité 2 : Voir les différents types et couleurs de briques via des menus
 
 ### Manipulation
 
-* Fonctionnalité 3 : La manipulation tridimensionnelle et l'orientation spatiale d'un Lego (6dll) pour pouvoir l'intégrer à une construction
-* Fonctionnalité 4 : Attraper une brique, l'imbriquer ou la désimbriquer des autres briques
-* Fonctionnalité 5 : La couleur de la brique est choisie à partir d’un clic dans le menu des couleurs et peut s'appliquer à une brique existante de la scène via un viseur
+- Fonctionnalité 3 : La manipulation tridimensionnelle et l'orientation spatiale d'un Lego (6dll) pour pouvoir l'intégrer à une construction
+- Fonctionnalité 4 : Attraper une brique, l'imbriquer ou la désimbriquer des autres briques
+- Fonctionnalité 5 : La couleur de la brique est choisie à partir d’un clic dans le menu des couleurs et peut s'appliquer à une brique existante de la scène via un viseur
 
 ### Déplacement
 
-* Fonctionnalité 6 : Déplacement autour ou à travers de la table pour réaliser sa construction
+- Fonctionnalité 6 : Déplacement autour ou à travers de la table pour réaliser sa construction
 
 ## Les contrôles
 
-* Déplacement : Joystick gauche (appuyer pour la téléportation)
-* Rotation de la vue : Joystick droit
-* Attraper une brique : Grip (3 doigts inférieurs de la main)
-* Désimbriquer : Trigger (index) de la main tenant la brique
-* Inventaire des briques : X (gauche)
-* Menu des couleurs : Y (gauche)
-* Interagir avec les couleurs : Trigger (index) de la main droite avec le pointeur laser
-* Quitter : Menu (gauche)
+- Déplacement : Joystick gauche (appuyer pour la téléportation)
+- Rotation de la vue : Joystick droit
+- Attraper une brique : Grip (3 doigts inférieurs de la main)
+- Désimbriquer : Trigger (index) de la main tenant la brique
+- Inventaire des briques : X (gauche)
+- Menu des couleurs : Y (gauche)
+- Interagir avec les couleurs : Trigger (index) de la main droite avec le pointeur laser
+- Quitter : Menu (gauche)
 
 # Remarques
 
@@ -63,6 +50,6 @@ En plus de la correction des bugs et limitations évoquées précédemment, nous
 
 # Répartition des tâches dans le projet
 
-* Jenny : Rédaction du document de conception, création de modèles de briques
-* Chang : Rédaction du document de conception, intégration des sons des briques
-* Théo : Développement du code
+- Jenny : Rédaction du document de conception, création de modèles de briques
+- Chang : Rédaction du document de conception, intégration des sons des briques
+- Théo : Développement du code

@@ -5,6 +5,8 @@ namespace LegoVR.Scripts {
 		public LegoBrick Brick { get; private set; }
 		public LegoStud ConnectedTo { get; set; }
 		public Joint Joint { get; set; }
+		// public bool Connected { get; set; }
+		public bool Connected => this.Joint != null;
 
 		private void Awake() {
 			this.Brick = this.gameObject.GetComponentInParent<LegoBrick>();
