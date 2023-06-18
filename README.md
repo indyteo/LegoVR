@@ -1,7 +1,7 @@
 # LegoVR
 Lego building in virtual reality - First VR project using Unity - ESIEE Paris E4FI
 
-https://github.com/indyteo/LegoVR/blob/master/Docs/LegoVR_VideoWalkthrough.mp4?raw=true
+https://youtu.be/mRjhS7ncvAs
 
 ![Bricks inventory](Docs/LegoVR_Screenshot_1.png)
 
